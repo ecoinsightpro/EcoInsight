@@ -91,7 +91,7 @@ function EcoSolutions({t, lang, go}) {
                 <button onClick={()=>setSel(null)} aria-label="Cerrar" style={{flexShrink:0,width:34,height:34,borderRadius:'50%',border:`1px solid ${t.border}`,background:t.card,color:t.textMuted,fontSize:16,cursor:'pointer',lineHeight:1}}>×</button>
               </div>
               <p style={{fontSize:15,color:t.text,lineHeight:1.65,fontFamily:'DM Sans',marginBottom:26}}>{detail.desc[lang]}</p>
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:26,marginBottom:26}}>
+              <div className="nw-two" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:26,marginBottom:26}}>
                 <Col title={L('Beneficios','Benefits')} items={detail.benefits[lang]}/>
                 <Col title={L('Casos de uso','Use cases')} items={detail.uses[lang]}/>
               </div>
@@ -394,7 +394,7 @@ function EcoLeadForm({t, lang}){
       ) : (
         <React.Fragment>
           <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'.1em',color:t.accent,marginBottom:14,fontFamily:'Plus Jakarta Sans'}}>{L('Habla con un especialista','Talk to a specialist')}</div>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:16}}>
+          <div className="nw-two" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:16}}>
             {field('name', L('Nombre','Name'))}
             {field('email', L('Email corporativo','Work email'),'email')}
             {field('company', L('Empresa','Company'))}
@@ -520,7 +520,7 @@ function EcoConversion({t, lang}) {
               {L('Plantillas y reportes ESG listos para implementar, creados por especialistas en sostenibilidad. Mide tu huella, cumple los estándares y presenta resultados en horas, no semanas.',
                  'Ready-to-implement ESG templates and reports built by sustainability specialists. Measure your footprint, meet the standards and present results in hours, not weeks.')}
             </p>
-            <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20,marginBottom:38}}>
+            <div className="nw-three" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20,marginBottom:38}}>
               {props.map(([h,d],i)=>(
                 <div key={i} style={{borderTop:`2px solid ${t.accent}`,paddingTop:13}}>
                   <div style={{fontSize:14,fontWeight:700,color:t.text,fontFamily:'Plus Jakarta Sans',marginBottom:5}}>{h}</div>

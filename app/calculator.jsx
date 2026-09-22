@@ -19,7 +19,7 @@ function EcoCalculator({t, lang}) {
   const tot=s1+s2+s3;
   const p=w=>tot>0?Math.max(1,Math.round(w/tot*100)):0;
   const gr=tot<10?{g:'A',c:t.positive}:tot<50?{g:'B',c:'#82C440'}:tot<200?{g:'C',c:'#C9BB1A'}:tot<500?{g:'D',c:t.warning}:tot<1000?{g:'E',c:'#D46A3A'}:{g:'F',c:t.critical};
-  const iSel={width:'100%',background:t.surface,border:`1px solid ${t.border}`,color:t.text,borderRadius:8,padding:'10px 12px',fontSize:13,fontFamily:'DM Sans',cursor:'pointer'};
+  const iSel={width:'100%',minWidth:0,maxWidth:'100%',background:t.surface,border:`1px solid ${t.border}`,color:t.text,borderRadius:8,padding:'10px 12px',fontSize:13,fontFamily:'DM Sans',cursor:'pointer'};
   const Field=({label,k,unit})=>(
     <div key={k}>
       <div style={{fontSize:10,color:t.textMuted,fontWeight:700,textTransform:'uppercase',letterSpacing:'.08em',marginBottom:5,fontFamily:'Plus Jakarta Sans'}}>{label}</div>
@@ -46,7 +46,7 @@ function EcoCalculator({t, lang}) {
           <span style={{color:t.textMuted,transform:open===id?'rotate(180deg)':'none',transition:'transform .22s',display:'block'}}>▾</span>
         </div>
       </button>
-      {open===id&&<div style={{padding:18,background:t.card,display:'grid',gridTemplateColumns:'1fr 1fr',gap:14}}>{children}</div>}
+      {open===id&&<div className="nw-two" style={{padding:18,background:t.card,display:'grid',gridTemplateColumns:'1fr 1fr',gap:14}}>{children}</div>}
     </div>
   );
   const goShop = () => { const el=document.querySelector('#marketplace'); el&&el.scrollIntoView({behavior:'smooth',block:'start'}); };
@@ -61,8 +61,8 @@ function EcoCalculator({t, lang}) {
           <p style={{fontSize:17,color:t.textMuted,maxWidth:560,lineHeight:1.65,fontFamily:'DM Sans'}}>{L('Mide la huella de carbono de tu empresa en tiempo real. Factores de emisión oficiales para LATAM, Norteamérica, Europa y Asia-Pacífico.','Measure your company\u2019s carbon footprint in real time. Official emission factors for LATAM, North America, Europe and Asia-Pacific.')}</p>
         </div>
         <div className="calc-grid" style={{display:'grid',gridTemplateColumns:'minmax(0,1fr) 355px',gap:32,alignItems:'start'}}>
-          <div>
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:18}}>
+          <div style={{minWidth:0}}>
+            <div className="nw-two" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,marginBottom:18}}>
               {[[L('Sector / Industria','Sector / Industry'),'industry',setIndustry,industry,[['mineria',L('Minería','Mining')],['construccion',L('Construcción','Construction')],['agro',L('Agroindustria','Agribusiness')],['manufactura',L('Manufactura','Manufacturing')],['transporte',L('Transporte & Logística','Transport & Logistics')],['servicios',L('Servicios & Consultoría','Services & Consulting')]]],
                 [L('Factor red eléctrica','Grid factor'),'country',setCountry,country,[
                   [L('América Latina','Latin America'),[['chile','Chile · 0.315'],['peru','Perú · 0.274'],['colombia','Colombia · 0.179'],['argentina','Argentina · 0.319'],['brasil','Brasil · 0.074'],['mexico','México · 0.452'],['latam',L('LATAM prom. · 0.319','LATAM avg. · 0.319')]]],

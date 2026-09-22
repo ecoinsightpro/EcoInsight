@@ -270,7 +270,7 @@ function EcoNews({t, lang, go}) {
         )}
 
         {featured && (
-        <div style={{display:'grid',gridTemplateColumns:'1.55fr 1fr',gap:20,marginBottom:20}}>
+        <div className="nw-two" style={{display:'grid',gridTemplateColumns:'1.55fr 1fr',gap:20,marginBottom:20}}>
           {/* featured */}
           <Reveal>
           <div onClick={()=>go('article',featured.id)} role="button" tabIndex={0} onKeyDown={window.openKey(()=>go('article',featured.id))} aria-label={featured.title[lang]} style={{background:t.card,border:`1px solid ${t.border}`,borderRadius:18,overflow:'hidden',cursor:'pointer',transition:'all .25s',height:'100%'}}
@@ -315,8 +315,8 @@ function EcoNews({t, lang, go}) {
         )}
 
         {/* recent grid + most read */}
-        <div style={{display:'grid',gridTemplateColumns:'1fr 320px',gap:20,marginTop:4}}>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:18}}>
+        <div className="nw-main" style={{display:'grid',gridTemplateColumns:'1fr 320px',gap:20,marginTop:4}}>
+          <div className="nw-three" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:18}}>
             {grid.map((a,i)=>(
               <Reveal key={a.id} delay={i*70}>
               <div onClick={()=>go('article',a.id)} role="button" tabIndex={0} onKeyDown={window.openKey(()=>go('article',a.id))} aria-label={a.title[lang]} style={{background:t.card,border:`1px solid ${t.border}`,borderRadius:14,overflow:'hidden',cursor:'pointer',transition:'all .22s',height:'100%'}}
@@ -429,7 +429,7 @@ function EcoArticle({t, lang, id, go}) {
 
         {/* impacts */}
         {hasImpacts && (
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,margin:'28px 0'}}>
+        <div className="nw-two" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:14,margin:'28px 0'}}>
           <ImpactBox label={L('Impacto para Chile','Impact for Chile')} color={t.accent} text={a.impactChile[lang]}/>
           <ImpactBox label={L('Impacto para empresas','Impact for companies')} color={t.accent2} text={a.impactEmpresas[lang]}/>
         </div>
@@ -447,7 +447,7 @@ function EcoArticle({t, lang, id, go}) {
 
         {/* related */}
         <div style={{fontSize:11,fontWeight:700,textTransform:'uppercase',letterSpacing:'.1em',color:t.textMuted,marginBottom:16,fontFamily:'Plus Jakarta Sans'}}>{L('Artículos relacionados','Related articles')}</div>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:14}}>
+        <div className="nw-three" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:14}}>
           {relFill.map(r=>(
             <div key={r.id} onClick={()=>go('article',r.id)} role="button" tabIndex={0} onKeyDown={window.openKey(()=>go('article',r.id))} aria-label={r.title[lang]} style={{background:t.card,border:`1px solid ${t.border}`,borderRadius:12,overflow:'hidden',cursor:'pointer',transition:'all .2s'}}
               onMouseEnter={e=>{e.currentTarget.style.borderColor=CC[r.cat]||t.accent;e.currentTarget.style.transform='translateY(-3px)';}}

@@ -206,7 +206,7 @@ function EcoHeader({t, theme, setTheme, lang, setLang, go}) {
   };
   return (
     <header style={{position:'fixed',top:0,left:0,right:0,zIndex:200,background:scrolled?t.bg+'F4':'transparent',backdropFilter:scrolled?'blur(18px)':'none',borderBottom:`1px solid ${scrolled?t.border:'transparent'}`,transition:'all .3s'}}>
-      <div style={{maxWidth:1180,margin:'0 auto',padding:'0 32px',display:'flex',alignItems:'center',justifyContent:'space-between',height:80,gap:18}}>
+      <div className="ei-hdr" style={{maxWidth:1180,margin:'0 auto',padding:'0 32px',display:'flex',alignItems:'center',justifyContent:'space-between',height:80,gap:18}}>
         <a href="#top" onClick={(e)=>onNav(e,'#top')} className="ei-brand" style={{display:'flex',alignItems:'center',gap:11,textDecoration:'none',flexShrink:0}}>
           <div style={logoBox}><img className="ei-logo" src={(window.__resources&&window.__resources.logo)||"uploads/logo-ei.png"} alt="EcoInsight" style={{height:66,width:'auto'}}/></div>
           <span className="ei-brandtext" style={{fontFamily:'Plus Jakarta Sans,sans-serif',fontWeight:800,fontSize:35,color:t.text,letterSpacing:'-.022em'}}>
@@ -222,7 +222,7 @@ function EcoHeader({t, theme, setTheme, lang, setLang, go}) {
             >{l}</a>
           ))}
         </nav>
-        <div style={{display:'flex',alignItems:'center',gap:14,flexShrink:0}}>
+        <div className="ei-hdr-ctrl" style={{display:'flex',alignItems:'center',gap:14,flexShrink:0}}>
           {/* language toggle */}
           <div style={{display:'flex',alignItems:'center',gap:1,background:t.card,border:`1px solid ${t.border}`,borderRadius:20,padding:3}}>
             {[['es','ES'],['en','EN']].map(([code,lbl])=>(
@@ -288,13 +288,13 @@ function EcoHero({t, lang, go}) {
   const goCalc = () => { const el=document.querySelector('#marketplace'); el&&el.scrollIntoView({behavior:'smooth'}); };
   const chips = [L('GHG Protocol','GHG Protocol'), L('Alcances 1, 2 y 3','Scopes 1, 2 & 3'), L('Factores IPCC 2006 + DEFRA 2024','IPCC 2006 + DEFRA 2024 factors'), L('Uso ilimitado con tus clientes','Unlimited use with your clients'), L('Descarga instantánea','Instant download')];
   return (
-    <section style={{position:'relative',overflow:'hidden',minHeight:'100vh',display:'flex',alignItems:'center',background:t.heroBg,paddingTop:132,paddingBottom:70}}>
+    <section className="ei-hero" style={{position:'relative',overflow:'hidden',minHeight:'100vh',display:'flex',alignItems:'center',background:t.heroBg,paddingTop:132,paddingBottom:70}}>
       <div aria-hidden="true" style={{position:'absolute',inset:0,overflow:'hidden',pointerEvents:'none'}}>
         <div className="aurora aurora-1" style={{background:t.accent}}/>
         <div className="aurora aurora-2" style={{background:t.accent2}}/>
       </div>
       <div style={{position:'relative',zIndex:1,maxWidth:1180,margin:'0 auto',padding:'0 32px',width:'100%'}}>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 360px',gap:54,alignItems:'center'}}>
+        <div className="hero-grid" style={{display:'grid',gridTemplateColumns:'1fr 360px',gap:54,alignItems:'center'}}>
           <div>
             <div className="ha1" style={{display:'inline-flex',alignItems:'center',gap:8,background:t.accentDim,border:`1px solid ${t.accent}35`,borderRadius:20,padding:'5px 14px',marginBottom:24,whiteSpace:'nowrap'}}>
               <span style={{width:6,height:6,borderRadius:'50%',background:t.accent,display:'inline-block',flexShrink:0}}/>
@@ -328,7 +328,7 @@ function EcoHero({t, lang, go}) {
               ))}
             </div>
           </div>
-          <div style={{display:'flex',justifyContent:'center'}}><window.EcoDashboard t={t} lang={lang}/></div>
+          <div className="hero-visual" style={{display:'flex',justifyContent:'center'}}><window.EcoDashboard t={t} lang={lang}/></div>
         </div>
       </div>
     </section>
