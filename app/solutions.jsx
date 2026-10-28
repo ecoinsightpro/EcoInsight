@@ -167,7 +167,7 @@ function EcoProductCard({variants, t, lang, money, shopUrl}){
         <div style={{marginTop:'auto',display:'flex',justifyContent:'space-between',alignItems:'center',gap:8}}>
           <span style={{display:'flex',alignItems:'baseline',gap:7,flexWrap:'wrap'}}>
             {base.price!=null
-              ? <span style={{fontSize:22,fontWeight:800,fontFamily:'Plus Jakarta Sans',color:t.text}}>{money(base.price,base.currency)}</span>
+              ? <span style={{display:'inline-flex',alignItems:'baseline',gap:5}}><span style={{fontSize:22,fontWeight:800,fontFamily:'Plus Jakarta Sans',color:t.text}}>{money(base.price,base.currency)}</span><span style={{fontSize:11.5,fontWeight:700,fontFamily:'DM Mono',color:t.textMuted,letterSpacing:'.04em'}}>{base.currency||'EUR'}</span></span>
               : <span style={{fontSize:13,fontWeight:700,fontFamily:'Plus Jakarta Sans',color:t.textMuted}}>{TL('Ver precio en Etsy','See price on Etsy')}</span>}
             {base.oldPrice&&<span style={{fontSize:12,color:t.textFaint,textDecoration:'line-through',fontFamily:'DM Mono'}}>{money(base.oldPrice,base.currency)}</span>}
           </span>
